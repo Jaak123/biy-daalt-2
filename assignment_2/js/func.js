@@ -3,18 +3,50 @@
 //     let scrollTop = event.target.scrollingElement.scrollTop,
 
 // }
-const navbar = document.querySelector(".navbar");
-const fixed = navbar.offsetTop;
+var navbar = document.querySelector(".navbar");
+var sticky = navbar.offsetTop;
 window.addEventListener("scroll", function (event) {
   let scrollTop = event.target.scrollingElement.scrollTop;
   console.log(scrollTop);
-  if (event.scrollTop > 615) {
-    navbar.classList.add("fixed");
+  if (scrollTop > 615) {
+    navbar.classList.add("fixed-top");
   } else {
-    navbar.classList.remove("fixed");
+    navbar.classList.remove("fixed-top");
   }
 });
 
+let url = "data/company_intro.json";
+getJSON(url);
+function getJSON(url) {
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState === 4 && request.status === 200) {
+      let business = JSON.parse(request.responseText);
+      // callback(nArr);
+      generateHTML(business);
+    }
+  };
+
+  request.open("GET", url);
+  request.send();
+}
+
+let dataBusiness = document.querySelector(".busines_strategy");
+function generateHTML(gov) {
+  console.log(gov);
+  gov.data.map((e) => {
+    let card = document.createElement("card");
+    card.innerHTML = `
+    <div class="card">
+        <img src="${e.thumbnail}" class="card-img-top" alt="">
+      <div>
+      <h5 class="card-title">${e.title}</h5>
+      <p class="card-text">${e.content}</p>
+      </div>
+      </div>`;
+    dataBusiness.appendChild(card);
+  });
+}
 // then add callback function that includes when the window height scroll down to 100vh and add 'fixed-top' class on Navbar element.
 // For your mind: object.classList.add('class') this method is add class on selected element
 // e.target.scrollingElement.scrollTop use that method when track scrolling amount
