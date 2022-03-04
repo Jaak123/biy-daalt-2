@@ -321,21 +321,20 @@ h2 {
   max-height: 32rem;
   border-radius: 1.25rem;
 }
-.studio-play-wrapper {
+.test {
   position: absolute;
   left: 5%;
   top: auto;
   right: auto;
   bottom: 5%;
   z-index: 0;
-  display: flex;
-  align-items: center;
+  border: none;
+  border-radius: 35px;
 }
-.studio-play-wrapper img {
-  width: 15%;
-  border-radius: 40px;
-  vertical-align: middle;
-  margin: 0px 16px 0px 0px;
+
+.test img {
+  border-radius: 250px;
+  width: 50px;
 }
 .studio-play-text {
   color: white;
@@ -520,4 +519,10 @@ h2 {
   border: none;
   margin-bottom: 10px;
   padding: 15px;
+}
+.busines_strategy {
+  display: flex;
+}
+.busines_strategy .card {
+  margin: 10px;
 }

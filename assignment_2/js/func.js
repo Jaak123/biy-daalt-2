@@ -47,6 +47,23 @@ function generateHTML(gov) {
     dataBusiness.appendChild(card);
   });
 }
+document.querySelector(".modal12").innerHTML = `
+<button type="button" class="test" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<img src="/images/play_icon.png" alt="">
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      <iframe width="470" height="315" src="https://www.youtube.com/embed/GcoJXX6oue8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+  `;
+
 // then add callback function that includes when the window height scroll down to 100vh and add 'fixed-top' class on Navbar element.
 // For your mind: object.classList.add('class') this method is add class on selected element
 // e.target.scrollingElement.scrollTop use that method when track scrolling amount
@@ -66,6 +83,39 @@ function generateHTML(gov) {
 // Create a callback function
 // Open a GET request and use data from ../data/company_intro.json
 // Send the request
+
+// let url = "data/posts.json";
+// getJSON(url);
+// function getJSON(url) {
+//   let request = new XMLHttpRequest();
+//   request.onreadystatechange = function () {
+//     if (request.readyState === 4 && request.status === 200) {
+//       let business = JSON.parse(request.responseText);
+//       // callback(nArr);
+//       generateHTML(business);
+//     }
+//   };
+
+//   request.open("GET", url);
+//   request.send();
+// }
+
+// let dataBusiness = document.querySelector(".busines_strategy");
+// function generateHTML(gov) {
+//   console.log(gov);
+//   gov.data.map((e) => {
+//     let card = document.createElement("card");
+//     card.innerHTML = `
+//     <div class="card">
+//         <img src="${e.thumbnail}" class="card-img-top" alt="">
+//       <div>
+//       <h5 class="card-title">${e.title}</h5>
+//       <p class="card-text">${e.content}</p>
+//       </div>
+//       </div>`;
+//     dataBusiness.appendChild(card);
+//   });
+// }
 
 /*  Add subscription email action. When subscription POST request is successful, 
     change the email element and subscribe button into "Your subscription is successful" Text. 
